@@ -216,7 +216,7 @@ TARGET_USES_OLD_MNC_FORMAT := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/fstab.qcom
 
 # Vendor security Patch
-VENDOR_SECURITY_PATCH := 2019-02-01
+VENDOR_SECURITY_PATCH := 2019-04-05
 
 # SELinux
 #include device/qcom/sepolicy/sepolicy.mk
