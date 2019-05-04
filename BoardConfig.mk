@@ -16,8 +16,6 @@
 
 DEVICE_PATH := device/xiaomi/rosy
 
-TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
-
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -56,7 +54,6 @@ BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 # Audio
 AUDIO_FEATURE_ENABLED_ANC_HEADSET := true
 AUDIO_FEATURE_ENABLED_ALAC_OFFLOAD := true
-AUDIO_FEATURE_ENABLED_APE_OFFLOAD  := true
 AUDIO_FEATURE_ENABLED_AUDIOSPHERE := true
 AUDIO_FEATURE_ENABLED_COMPRESS_VOIP := true
 AUDIO_FEATURE_ENABLED_CUSTOMSTEREO := true
@@ -71,8 +68,6 @@ AUDIO_FEATURE_ENABLED_PCM_OFFLOAD := true
 AUDIO_FEATURE_ENABLED_PCM_OFFLOAD_24 := true
 AUDIO_FEATURE_ENABLED_PROXY_DEVICE := true
 AUDIO_FEATURE_ENABLED_SOURCE_TRACKING := true
-AUDIO_FEATURE_ENABLED_VORBIS_OFFLOAD := true
-AUDIO_FEATURE_ENABLED_WMA_OFFLOAD  := true
 AUDIO_FEATURE_ENABLED_EXT_AMPLIFIER := false
 AUDIO_USE_LL_AS_PRIMARY_OUTPUT := true
 BOARD_SUPPORTS_SOUND_TRIGGER := true
@@ -104,9 +99,6 @@ BOARD_CHARGER_DISABLE_INIT_BLANK := true
 
 # CNE / DPM
 BOARD_USES_QCNE := true
-
-# Cpusets
-ENABLE_CPUSETS := true
 
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
@@ -178,6 +170,10 @@ HWUI_COMPILE_FOR_PERF := true
 TARGET_INIT_VENDOR_LIB := libinit_msm8953
 TARGET_RECOVERY_DEVICE_MODULES := libinit_msm8953
 
+# Init
+TARGET_INIT_VENDOR_LIB := libinit_msm8953
+TARGET_RECOVERY_DEVICE_MODULES := libinit_msm8953
+
 # Media
 TARGET_USES_MEDIA_EXTENSIONS := true
 
@@ -206,6 +202,9 @@ TARGET_TAP_TO_WAKE_NODE := "/proc/gesture/onoff"
 
 # Qualcomm
 BOARD_USES_QCOM_HARDWARE := true
+
+# Recovery
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/fstab.qcom
 
 # RIL
 DISABLE_RILD_OEM_HOOK := true
@@ -247,4 +246,7 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit from the proprietary version
 -include vendor/xiaomi/rosy/BoardConfigVendor.mk
+
+# inherit from the proprietary version
+-include vendor/xiaomi/vince/BoardConfigVendor.mk
 -include vendor/xiaomi/msm8953-common/BoardConfigVendor.mk
